@@ -1,7 +1,7 @@
 ## Interface: 30300
-## Notes: |@Version: 1@|Simple Map Mod
-## Notes-zhCN: |@Version: 1@|简单实用的地图模块
-## Notes-frFR: |@Version: 1@|Simples modifications de la carte.
+## Notes: |@Version: 2@|Simple Map Mod
+## Notes-zhCN: |@Version: 2@|简单实用的地图模块
+## Notes-frFR: |@Version: 2@|Simples modifications de la carte.
 ## Title: Mapster
 ## Author: Nevcairiel
 ## SavedVariables: MapsterDB

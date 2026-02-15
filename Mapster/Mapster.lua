@@ -103,6 +103,7 @@ function Mapster:OnEnable()
 
 	UIPanelWindows["WorldMapFrame"] = nil
 	WorldMapFrame:SetAttribute("UIPanelLayout-enabled", false)
+	WorldMapFrame:SetAttribute("UIPanelLayout-defined", true)
 	WorldMapFrame:HookScript("OnShow", wmfOnShow)
 	WorldMapFrame:HookScript("OnHide", wmfOnHide)
 	BlackoutWorld:Hide()
