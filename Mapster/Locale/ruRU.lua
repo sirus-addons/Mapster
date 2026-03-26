@@ -11,7 +11,11 @@ L["Alpha"] = "Прозрачность"
 L["Battlegrounds"] = "Поля боя"
 L["BattleMap"] = "Карта поля боя"
 L["Blobs & Panels"] = "Отметки и панели"
+L["Burning Crusade Instances"] = "Подземелья Burning Crusade" -- Needs review
+L["Burning Crusade Raids"] = "Рейды Burning Crusade" -- Needs review
 L["Change the scale of the world map if you do not want the whole screen filled while the map is open."] = "Изменените масштаб карты, если не хотите видеть её развёрнутой на весь экран."
+L["Classic Instances"] = "Подземелья Classic"
+L["Classic Raids"] = "Рейды Classic"
 L["Coordinates"] = "Координаты"
 L["Cursor"] = "Курсор"
 L["Debug"] = "Отладка"
@@ -61,6 +65,8 @@ L["The Instance Maps module allows you to view the Instance and Battleground Map
 L["The transparency of the big map."] = "Прозрачность большой карты."
 L["The transparency of the minimized map."] = "Прозрачность уменьшенной карты."
 L["Turn on debugging for the FogClear Module."] = "Включить режим отладки для модуля очистки тумана войны."
+L["Wrath Instances"] = "Подземелья WotLK"
+L["Wrath Raids"] = "Рейды WotLK"
 L["You can change the transparency of the world map to allow you to continue seeing the world environment while your map is open for navigation."] = "Вы можете изменить прозрачность карты, что позволит вам видеть окружающую обстановку в то время, как карта будет открыта."
 L["You can control the accuracy of the coordinates, e.g. if you need very exact coordinates you can set this to 2."] = "Вы можете управлять точностью координат, например, если вам нужные очень точные координаты - вы можете установить это значение как 2."
 

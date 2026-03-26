@@ -22,6 +22,7 @@ local defaults = {
 		points = "CENTER",
 		scale = 0.75,
 		poiScale = 0.8,
+		ejScale = 0.8,
 		alpha = 1,
 		hideBorder = false,
 		disableMouse = false,
@@ -63,6 +64,7 @@ local format = string.format
 
 local wmfOnShow, wmfStartMoving, wmfStopMoving, dropdownScaleFix
 local questObjDropDownInit, questObjDropDownUpdate
+local wmfOnHide
 
 function Mapster:OnInitialize()
 	self.db = LibStub("AceDB-3.0"):New("MapsterDB", defaults, true)
@@ -122,9 +124,9 @@ function Mapster:OnEnable()
 	WorldMapFrame:SetHeight(768)
 	WorldMapFrame:SetClampedToScreen(false)
 
-	WorldMapContinentDropDownButton:SetScript("OnClick", dropdownScaleFix)
-	WorldMapZoneDropDownButton:SetScript("OnClick", dropdownScaleFix)
-	WorldMapZoneMinimapDropDownButton:SetScript("OnClick", dropdownScaleFix)
+	WorldMapContinentDropDownButton:HookScript("OnClick", dropdownScaleFix)
+	WorldMapZoneDropDownButton:HookScript("OnClick", dropdownScaleFix)
+	WorldMapZoneMinimapDropDownButton:HookScript("OnClick", dropdownScaleFix)
 
 	WorldMapFrameSizeDownButton:SetScript("OnClick", function() Mapster:ToggleMapSize() end)
 	WorldMapFrameSizeUpButton:SetScript("OnClick", function() Mapster:ToggleMapSize() end)
@@ -169,7 +171,9 @@ function Mapster:OnEnable()
 	self:SecureHook("WorldMapFrame_DisplayQuestPOI")
 	self:SecureHook("WorldMapFrame_DisplayQuests")
 	self:SecureHook("WorldMapFrame_SetPOIMaxBounds")
+	self:SecureHook("WorldMapLevelDropDown_Update", "UpdateMapElements")
 	WorldMapFrame_SetPOIMaxBounds()
+	self:SecureHook("EncounterJournal_AddMapButtons")
 
 	if vis then
 		ShowUIPanel(WorldMapFrame)
@@ -259,6 +263,25 @@ function Mapster:WorldMapFrame_SetPOIMaxBounds()
 	WORLDMAP_POI_MAX_X = WorldMapDetailFrame:GetWidth() * WORLDMAP_SETTINGS.size + 12;
 end
 
+function Mapster:EncounterJournal_AddMapButtons()
+	local scale = WorldMapDetailFrame:GetScale();
+	local width = WorldMapDetailFrame:GetWidth() * scale / db.ejScale
+	local height = WorldMapDetailFrame:GetHeight() * scale / db.ejScale
+
+	local index = 1
+	local x, y, instanceID, name, description, encounterID = EJ_GetMapEncounter(index)
+
+	while name do
+		local bossButton = _G["EJMapButton"..index]
+		if bossButton then
+			bossButton:SetPoint("CENTER", WorldMapBossButtonFrame, "BOTTOMLEFT", x * width, (1 - y) * height)
+			bossButton:SetScale(db.ejScale)
+		end
+		index = index + 1
+		x, y, instanceID, name, description, encounterID = EJ_GetMapEncounter(index)
+	end
+end
+
 function Mapster:Refresh()
 	db_ = self.db.profile
 
@@ -298,6 +321,7 @@ function Mapster:Refresh()
 	self:UpdateMouseInteractivity()
 	self:UpdateModuleMapsizes()
 	WorldMapFrame_UpdateQuests()
+	EncounterJournal_AddMapButtons()
 end
 
 function Mapster:ToggleMapSize()
@@ -475,8 +499,17 @@ function wmfStopMoving(frame)
 end
 
 function dropdownScaleFix(self)
-	ToggleDropDownMenu(nil, nil, self:GetParent())
-	DropDownList1:SetScale(db.scale)
+	local uiScale = 1
+	local uiParentScale = UIParent:GetScale()
+	if GetCVar("useUIScale") == "1" then
+		uiScale = tonumber(GetCVar("uiscale"))
+		if uiParentScale < uiScale then
+			uiScale = uiParentScale
+		end
+	else
+		uiScale = uiParentScale
+	end
+	DropDownList1:SetScale(uiScale * db.scale)
 end
 
 function Mapster:ShowBlobs()

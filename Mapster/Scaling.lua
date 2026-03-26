@@ -48,21 +48,21 @@ function Scale:OnEnable()
 		mousetracker:SetScript("OnLeave", function()
 			scaler:SetDesaturated(true)
 		end)
-		mousetracker:SetScript("OnMouseUp", function(self)
+		mousetracker:SetScript("OnMouseUp", function(t)
 			LibWindow.SavePosition(WorldMapFrame)
-			self:SetScript("OnUpdate", nil)
-			self:SetAllPoints(scaler)
+			t:SetScript("OnUpdate", nil)
+			t:SetAllPoints(scaler)
 			Mapster:ShowBlobs()
 		end)
-		mousetracker:SetScript("OnMouseDown",function(self)
+		mousetracker:SetScript("OnMouseDown",function(t)
 			Mapster:HideBlobs()
 			SOS.left, SOS.top = WorldMapFrame:GetLeft(), WorldMapFrame:GetTop()
 			SOS.scale = WorldMapFrame:GetScale()
 			SOS.x, SOS.y = SOS.left, SOS.top-(UIParent:GetHeight()/SOS.scale)
 			SOS.EFscale = WorldMapFrame:GetEffectiveScale()
 			SOS.dist = GetScaleDistance()
-			self:SetScript("OnUpdate", OnUpdate)
-			self:SetAllPoints(UIParent)
+			t:SetScript("OnUpdate", OnUpdate)
+			t:SetAllPoints(UIParent)
 		end)
 		tinsert(Mapster.elementsToHide, scaler)
 	end
@@ -73,7 +73,7 @@ end
 function Scale:OnDisable()
 	if scaler then
 		scaler:Hide()
-		moustracker:Hide()
+		mousetracker:Hide()
 	end
 end
 
@@ -82,8 +82,8 @@ function GetScaleDistance() -- distance from cursor to TopLeft :)
 	local scale = SOS.EFscale
 
 	local x, y = GetCursorPosition()
-	local x = x/scale - left
-	local y = top - y/scale
+	x = x/scale - left
+	y = top - y/scale
 
 	return sqrt(x*x+y*y)
 end

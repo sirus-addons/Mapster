@@ -15,7 +15,11 @@ L["Alpha"] = true
 L["Battlegrounds"] = true
 L["BattleMap"] = true
 L["Blobs & Panels"] = true
+L["Burning Crusade Instances"] = true
+L["Burning Crusade Raids"] = true
 L["Change the scale of the world map if you do not want the whole screen filled while the map is open."] = true
+L["Classic Instances"] = true
+L["Classic Raids"] = true
 L["Coordinates"] = true
 L["Cursor"] = true
 L["Debug"] = true
@@ -65,6 +69,8 @@ L["The Instance Maps module allows you to view the Instance and Battleground Map
 L["The transparency of the big map."] = true
 L["The transparency of the minimized map."] = true
 L["Turn on debugging for the FogClear Module."] = true
+L["Wrath Instances"] = true
+L["Wrath Raids"] = true
 L["You can change the transparency of the world map to allow you to continue seeing the world environment while your map is open for navigation."] = true
 L["You can control the accuracy of the coordinates, e.g. if you need very exact coordinates you can set this to 2."] = true
 

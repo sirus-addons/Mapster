@@ -67,7 +67,7 @@ function GroupIcons:OnEnable()
 		RAID_CLASS_COLORS = CUSTOM_CLASS_COLORS
 	end
 
-	if not IsAddOnLoaded("Blizzard_BattlefieldMinimap") then
+	if not IsAddOnLoaded("Blizzard_BattlefieldMinimap") and not BattlefieldMinimap then
 		self:RegisterEvent("ADDON_LOADED", function(event, addon)
 			if addon == "Blizzard_BattlefieldMinimap" then
 				GroupIcons:UnregisterEvent("ADDON_LOADED")
@@ -79,7 +79,7 @@ function GroupIcons:OnEnable()
 		FixBattlefieldUnits(true)
 	end
 	FixWorldMapUnits(true)
-	self:RawHook("WorldMapUnit_Update", true)
+	self:SecureHook("WorldMapUnit_Update")
 end
 
 function GroupIcons:OnDisable()

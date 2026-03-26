@@ -11,7 +11,11 @@ L["Alpha"] = "Transparence"
 L["Battlegrounds"] = "Champs de bataille"
 L["BattleMap"] = "CarteLocale"
 L["Blobs & Panels"] = "Spots et panneaux"
+L["Burning Crusade Instances"] = "Instances de Burning Crusade" -- Needs review
+L["Burning Crusade Raids"] = "Raids de Burning Crusade" -- Needs review
 L["Change the scale of the world map if you do not want the whole screen filled while the map is open."] = "Modifiez l'échelle de la carte du monde si vous ne souhaitez pas que tout votre écran soit occupé quand la carte est ouverte."
+L["Classic Instances"] = "Instances classiques"
+L["Classic Raids"] = "Raids classiques"
 L["Coordinates"] = "Coordonnées"
 L["Cursor"] = "Curseur "
 L["Debug"] = "Débogage"
@@ -61,6 +65,8 @@ L["The Instance Maps module allows you to view the Instance and Battleground Map
 L["The transparency of the big map."] = "Définit la transparence de la grande carte."
 L["The transparency of the minimized map."] = "Définit la transparence de la carte minimisée."
 L["Turn on debugging for the FogClear Module."] = "Active le débogage pour le module Antibrouillard."
+L["Wrath Instances"] = "Instances de Lich King"
+L["Wrath Raids"] = "Raids de Lich King"
 L["You can change the transparency of the world map to allow you to continue seeing the world environment while your map is open for navigation."] = "Vous pouvez modifier la transparence de la carte du monde afin de continuer à voir l'environnement du jeu quand vous consultez la carte."
 L["You can control the accuracy of the coordinates, e.g. if you need very exact coordinates you can set this to 2."] = "Vous pouvez ici déterminer la précision des coordonnées. Par exemple, si vous voulez des coordonnées très précises, mettez la valeur à 2."
 
