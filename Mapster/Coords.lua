@@ -93,9 +93,8 @@ function Coords:OnEnable()
 
 		cursortext = display:CreateFontString(nil, "ARTWORK", "GameFontNormal")
 		playertext = display:CreateFontString(nil, "ARTWORK", "GameFontNormal")
-
-		self:UpdateMapsize(Mapster.miniMap)
 	end
+	self:UpdateMapsize(Mapster.miniMap)
 	display:SetScript("OnUpdate", OnUpdate)
 	if Mapster.bordersVisible then
 		display:Show()

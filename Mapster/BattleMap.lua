@@ -102,7 +102,7 @@ function BattleMap:OnDisable()
 		BattlefieldMinimapCorner:Show()
 		BattlefieldMinimapBackground:Show()
 		BattlefieldMinimapCloseButton:Show()
-		BattlefieldMinimapTab:Show()
+		if BattlefieldMinimap:IsShown() then BattlefieldMinimapTab:Show() end
 	end
 
 	self:UpdateTextureVisibility()

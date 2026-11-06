@@ -1339,7 +1339,7 @@ function FogClear:UpdateBattlefieldMinimapOverlays()
 	-- update battleMapCache
 	local NUM_BATTLEFIELDMAP_OVERLAYS = BattlefieldMinimap:GetAttribute("NUM_BATTLEFIELDMAP_OVERLAYS")
 	if NUM_BATTLEFIELDMAP_OVERLAYS > self.NUM_BATTLEFIELDMAP_OVERLAYS then
-		for i = self.NUM_WORLDMAP_OVERLAYS + 1, NUM_WORLDMAP_OVERLAYS do
+		for i = self.NUM_BATTLEFIELDMAP_OVERLAYS + 1, NUM_BATTLEFIELDMAP_OVERLAYS do
 			tinsert(battleMapCache, i, _G[format("BattlefieldMinimapOverlay%d", i)])
 		end
 		self.NUM_BATTLEFIELDMAP_OVERLAYS = NUM_BATTLEFIELDMAP_OVERLAYS

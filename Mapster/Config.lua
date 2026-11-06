@@ -184,7 +184,8 @@ function Mapster:SetupOptions()
 	LibStub("AceConfigRegistry-3.0"):RegisterOptionsTable("Mapster", getOptions)
 	self.optionsFrames.Mapster = LibStub("AceConfigDialog-3.0"):AddToBlizOptions("Mapster", nil, nil, "general")
 
-	self:RegisterModuleOptions("Profiles", LibStub("AceDBOptions-3.0"):GetOptionsTable(self.db), "Profiles")
+	local profiles = LibStub("AceDBOptions-3.0"):GetOptionsTable(self.db)
+	self:RegisterModuleOptions("Profiles", profiles, profiles.name)
 
 	LibStub("AceConsole-3.0"):RegisterChatCommand( "mapster", optFunc)
 end
